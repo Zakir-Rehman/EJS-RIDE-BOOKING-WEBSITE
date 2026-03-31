@@ -1,0 +1,282 @@
+/* ====== HEADER / NAVBAR ====== */
+header {
+    background-color: #ffffff;
+    /* White background */
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* subtle shadow */
+}
+
+/* NAVBAR FLEX */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+}
+
+/* ====== LOGO ====== */
+
+.logo-div h1 {
+    display: inline-block;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ff6600;
+    /* primary color for logo */
+    font-family: "Michroma", sans-serif;
+}
+
+/* .logo-div span {
+    
+    font-family: "Michroma", sans-serif;
+    font-weight: 550;
+    color: #ff6600; 
+} */
+
+/* ====== NAV MENU ====== */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu li {
+    cursor: pointer;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.nav-menu li:hover {
+    color: #ff6600;
+    /* hover effect same as logo color */
+}
+
+/* ====== BUTTONS ====== */
+.btn-div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.book-btn {
+    background-color: #ff6600;
+    /* same color as logo */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.book-btn:hover {
+    background-color: #e65c00;
+    /* slightly darker on hover */
+}
+
+.login-btn {
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    /* border-radius: 5px; */
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #ff6600;
+    color: #fff;
+    /* border: none; */
+    transform: scale(1.2);
+
+}
+
+/* ====== USER ICON ====== */
+.btn-div i {
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-div i:hover {
+    color: #ff6600;
+    transform: translateY(5px);
+    transition: all .5s linear;
+}
+
+.fa-bars {
+    display: none;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1024px) {
+    nav {
+        padding: 15px 30px;
+    }
+
+    .nav-menu {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 870px) {
+    header nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 18px 26px;
+    }
+
+    .nav-menu {
+        display: none;
+        /* width: 100%; */
+    }
+
+    .btn-div {
+        width: max-content;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+    .fa-bars {
+        display: block;
+    }
+
+}
+
+/* SIDEBAR WRAPPER */
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
+    transition: 0.4s ease;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ACTIVE SIDEBAR */
+.mobile-sidebar.active {
+    right: 0;
+}
+
+/* HEADER */
+.sidebar-header {
+    background: #ff6600;
+    color: #fff;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar-header h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.sidebar-header i {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* MENU */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    border-bottom: 1px solid rgba(255, 102, 0, 0.2);
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #ff6600;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* HOVER */
+.sidebar-menu a:hover {
+    background: #ff6600;
+    color: #fff;
+}
+
+/* OVERLAY */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+/* OVERLAY ACTIVE */
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 500px) {
+    .mobile-sidebar {
+        /* width: 90%; */
+        height: max-content;
+    }
+
+    .btn-book-now {
+        display: none !important;
+    }
+
+    .btn-book-now-slidebar {
+        display: flex !important;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .btn-div-slidebar {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        justify-content: space-evenly;
+        flex-direction: column;
+        margin-bottom: 30px;
+        padding: 0 11px;
+        margin-top: 10px;
+    }
+
+    .login-btn {
+        width: 83%;
+    }
+}
+
+@media (max-width:400px) {
+    .login-btn {
+        display: none;
+    }
+
+    .login-btn-slidebar {
+        display: block;
+    }
+}

@@ -1,0 +1,57 @@
+<header>
+    <nav>
+        <div class="logo-div">
+            <a href="/">
+                <h1>YourRide</h1>
+            </a>
+        </div>
+        <ol class="nav-menu">
+            <a href="/">
+                <li>Home</li>
+            </a>
+            <a href="/vehicles">
+                <li>Vehicles</li>
+            </a>
+            <a href="/self-drives">
+                <li>Self Drive</li>
+            </a>
+            <a href="/contact">
+                <li>Contact</li>
+            </a>
+            <a href="/faqs">
+                <li>FAQ</li>
+            </a>
+        </ol>
+        <div class="btn-div">
+            <label for="book-now-checkbox" class="btn-book-now">Book Now</label>
+            <i class="fa-regular fa-user"></i>
+            <button class="login-btn">Log in</button>
+            <i class="fa-solid fa-bars" id="openSidebar"></i>
+        </div>
+    </nav>
+</header>
+<!-- MOBILE SIDEBAR -->
+<div class="mobile-sidebar" id="mobileSidebar">
+    <div class="sidebar-header">
+        <h2>YourRide</h2>
+        <i class="fa-solid fa-xmark" id="closeSidebar"></i>
+    </div>
+
+    <ul class="sidebar-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/vehicles">Vehicles</a></li>
+        <li><a href="/self-drives">Self Drive</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/faqs">FAQ</a></li>
+        <li><a href="/login">Login</a></li>
+    </ul>
+    <div class="btn-div btn-div-slidebar">
+        <!-- <label for="book-now-checkbox" class="btn-book-now btn-book-now-slidebar">Book Now</label> -->
+        <button class="btn-book-now  btn-book-now-slidebar" id="booking-script">Book Now</button>
+        
+        <button class="login-btn login-btn-slidebar" id="login-script">Log in</button>
+    </div>
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<script src="/js/navbar.js"></script>

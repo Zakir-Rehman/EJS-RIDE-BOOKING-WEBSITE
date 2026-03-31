@@ -1,0 +1,125 @@
+.about-contact {
+    background: #fff;
+    width: 60%;
+    padding: 13px;
+    text-align: center;
+}
+
+.section-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.icons-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 63px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.icons-main .icon {
+    background: #fff;
+    padding: 16px 23px 14px 21px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    cursor: pointer;
+    width: 196px;
+}
+
+.icons-main .icon:hover {
+    transition: var(--transition);
+    box-shadow: 0 0 10px 1px #aeaeae;
+}
+
+.icons-main .icon i {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+    color: #fff;
+
+    border-radius: 50%;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+/* PHONE */
+.icons-main .icon i.phone {
+    background: #62a162;
+    box-shadow: 0 0 0 6px rgba(98, 161, 98, 0.3);
+}
+
+/* EMAIL */
+.icons-main .icon i.email {
+    background: #ff6600;
+    box-shadow: 0 0 0 6px rgba(255, 102, 0, 0.3);
+}
+
+/* WHATSAPP */
+.icons-main .icon i.whatsapp {
+    background: #25D366;
+    box-shadow: 0 0 0 6px rgba(37, 211, 102, 0.3);
+}
+
+/* FACEBOOK */
+.icons-main .icon i.facebook {
+    background: #1877F2;
+    box-shadow: 0 0 0 6px rgba(24, 119, 242, 0.3);
+}
+
+/* INSTAGRAM */
+.icons-main .icon i.instagram {
+    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+    box-shadow: 0 0 0 6px rgba(221, 42, 123, 0.3);
+}
+
+/* HOVER EFFECT (ALL ICONS) */
+.icons-main .icon i:hover {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.icons-main .icon p a {
+    text-decoration: none;
+    color: #000;
+}
+
+.dev-para {
+    width: 60%;
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+.dev-para p{
+    text-align: center;
+}
+.section-about-dev{
+        width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 73px;
+}
+@media (max-width:900px) {
+    .about-contact,.dev-para{
+        width: 90%;
+    }
+    
+}
+@media (max-width:400px) {
+    .icons-main .icon{
+        width: 90%;
+    }
+}

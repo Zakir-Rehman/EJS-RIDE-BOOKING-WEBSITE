@@ -1,0 +1,284 @@
+.filter-container {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* max-width: 1000px; */
+    margin: auto;
+}
+
+.filter-container h2 {
+    margin: 0 0 5px 0;
+}
+
+.filter-container p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 150px;
+    /* min-width: 225px; */
+    min-width: 240px;
+}
+
+.form-group label {
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 49%;
+}
+
+.form-buttons button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-buttons .apply {
+    background: #ff6600;
+    color: #fff;
+    width: 45%;
+}
+
+.form-buttons .apply:hover {
+    background: #ff6600c7;
+}
+
+.form-buttons .reset {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+.form-buttons .reset:hover {
+    background: #f2f2f2;
+}
+.searched-input{
+    width: 30%;
+}
+/* Responsive */
+@media (max-width: 1290px) {
+     .searched-input{
+        width: 100%;
+    }
+}
+@media (max-width: 700px) {
+    .filter-form {
+        /* flex-direction: column; */
+        flex-direction: row;
+    }
+
+    .form-buttons {
+        justify-content: flex-start;
+    }
+   
+}
+
+.filter-text-button-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-reset a button {
+    border: none;
+    background: transparent;
+    outline: 1px solid #aeaeae;
+    padding: 9px;
+    border-radius: 4px;
+}
+@media (max-width:600px) {
+    .filter-text-button-div{
+            flex-direction: column;
+    align-items: start;
+    margin-bottom: 30px;
+    }
+    
+}
+/* Car card */
+/* Car card container */
+.car {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hover effect: scale + box-shadow */
+.car:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px #aeaeae;
+}
+
+/* Car image */
+.car img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.car:hover img {
+    transform: scale(1.1);
+}
+
+/* Title section */
+.car .title {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.car .title h1 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.car .title h1 span {
+    font-size: 13px;
+    color: #777;
+    font-weight: 500;
+}
+
+.car .title span {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Price */
+.car>p {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Advantages section */
+.car .advantages {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    font-size: 13px;
+    color: #555;
+}
+
+.car .advantages p {
+    margin: 0;
+    background: #f7f7f7;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+/* Location */
+.car .location {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 13px;
+    color: #777;
+}
+
+.car .location i {
+    margin-right: 6px;
+    color: #ff4d4d;
+}
+
+/* Button */
+.car .btn-div {
+    padding: 15px;
+}
+
+.car .btn-div button {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff6600;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-weight: 550;
+}
+
+.car .btn-div button:hover {
+    background-color: #ff6600c7;
+    transform: scale(1.03);
+}
+
+.btn-div a {
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+
+}
+
+.btn-div button i {
+    color: #fff;
+}
+
+.searched-show-cars-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    /* justify-content: center; */
+      padding: 31px 0px 0 45px;
+    row-gap: 24px;
+    column-gap: 21px;
+    /* padding: 38px; */
+}
+.section-2 h2{
+        color: #ff6600;
+    margin-left: 40px;
+}

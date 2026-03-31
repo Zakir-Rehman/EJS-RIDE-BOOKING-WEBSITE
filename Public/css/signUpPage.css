@@ -1,0 +1,39 @@
+.signup {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-box {
+  width: 420px;
+  background: #fff;
+  padding: 30px;
+      margin-top: 20px;
+}
+.benefits{
+  list-style: none;
+  padding: 0;
+}
+.signup-box input {
+     width: 100%;
+    padding: 14px;
+    margin: 3px 0;
+    border: 1px solid #ddd;
+}
+.signup-box button{
+    width: 100%;
+    background-color: #ff6600;
+    border: none;
+    padding: 12px;
+    color: #fff;
+    font-weight: 990;
+    font-size: 17px;
+    margin-top: 6px;
+    transition: all .5s linear;
+
+}
+.login-password-input{
+margin-top: 0 !important;
+    display: none;
+}

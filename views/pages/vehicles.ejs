@@ -1,0 +1,221 @@
+<div class="header">
+    <h1>Vehicles</h1>
+    <p>Browse our complete fleet of verified vehicles. Click on any car to view detailed specifications and
+        features.</p>
+    <a href="/">
+        <button><i class="fa-solid fa-arrow-left"></i> Back to Home</button>
+    </a>
+</div>
+<main>
+    <section class="section-vehicles">
+        <form method="GET" action="/vehicles">
+            <div class="filter-section">
+
+                <div class="input-1 inp-div">
+                    <label>Category</label>
+                    <!-- <select name="category">
+                        <option value="">All Categories</option>
+                        <option value="Economy">Economy</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="Luxury">Luxury</option>
+                        <option value="SUV">SUV</option>
+                        <option value="7-Seater">7-Seater</option>
+                    </select> -->
+                    <select name="category">
+                        <option value="">All Categories</option>
+
+                        <% categories.forEach(cat=> { %>
+                            <option value="<%= cat %>" <%=filters?.category===cat ? "selected" : "" %>>
+                                <%= cat %>
+                            </option>
+                            <% }) %>
+
+                    </select>
+
+                </div>
+
+                <div class="input-2 inp-div">
+                    <label>Transmission</label>
+                    <!-- <select name="transmission">
+                        <option value="">All</option>
+                        <option value="Manual">Manual</option>
+                        <option value="Automatic">Automatic</option>
+                    </select> -->
+                    <select name="transmission">
+                        <option value="">All</option>
+
+                        <% transmissions.forEach(t=> { %>
+                            <option value="<%= t %>" <%=filters?.transmission===t ? "selected" : "" %>>
+                                <%= t %>
+                            </option>
+                            <% }) %>
+
+                    </select>
+
+                </div>
+
+                <div class="input-3 inp-div">
+                    <label>Fuel Type</label>
+                    <!-- <select name="fuelType">
+                        <option value="">All</option>
+                        <option value="Petrol">Petrol</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Hybrid">Hybrid</option>
+                        <option value="Electric">Electric</option>
+                    </select> -->
+                    <select name="fuelType">
+                        <option value="">All</option>
+
+                        <% fuelTypes.forEach(fuel=> { %>
+                            <option value="<%= fuel %>" <%=filters?.fuelType===fuel ? "selected" : "" %>>
+                                <%= fuel %>
+                            </option>
+                            <% }) %>
+
+                    </select>
+
+                </div>
+
+                <div class="input-4 inp-div">
+                    <label>Location</label>
+                    <!-- <select name="city">
+                        <option value="">All Locations</option>
+                        <option value="Karachi">Karachi</option>
+                        <option value="Lahore">Lahore</option>
+                        <option value="Islamabad">Islamabad</option>
+                    </select> -->
+                    <!-- First vehicles route -->
+                    <!-- <select name="city">
+                        <option value="">All Locations</option>
+                        <option value="Karachi" <%=filters.city==="Karachi" ? "selected" : "" %>>Karachi</option>
+                        <option value="Lahore" <%=filters.city==="Lahore" ? "selected" : "" %>>Lahore</option>
+                        <option value="Islamabad" <%=filters.city==="Islamabad" ? "selected" : "" %>>Islamabad</option>
+                        <option value="Quetta" <%=filters.city==="Quetta" ? "selected" : "" %>>Quetta</option>
+                    </select> -->
+                    <!-- Second vehicles route -->
+                   <select name="city" onchange="this.form.submit()">
+                 <option value="" <%= !filters.city ? "selected" : "" %>>All Locations</option>
+
+                    <% const cities = [
+                            "Islamabad","Lahore","Faisalabad","Rawalpindi","Multan",
+                            "Gujranwala","Peshawar","Quetta","Sialkot","Bahawalpur",
+                            "Sargodha","Larkana","Sheikhupura","Rahim Yar Khan","Gujrat",
+                            "Mardan","Kasur","Sukkur","Okara","Wah Cantt","Jhang",
+                            "Chiniot","Dera Ghazi Khan","Mingora","Mandi Bahauddin",
+                            "Muzaffarabad","Abbottabad","Chakwal","Hafizabad",
+                            "Nawabshah","Khairpur","Hyderabad","Jacobabad","Kotli",
+                            "Gwadar","Turbat","Mirpur Khas","Thatta","Bannu",
+                            "Dera Ismail Khan","Karachi"
+                    ]; %>
+
+                    <% cities.forEach(c => { %>
+                         <option value="<%= c %>" <%= filters.city === c ? "selected" : "" %>>
+                             <%= c %>
+                         </option>
+                    <% }) %>
+                    </select>
+
+
+                </div>
+
+                <!-- MAX PRICE RANGE -->
+                <div class="input-5 inp-div">
+                    <label>Max Price (PKR): <span id="priceValue">
+                            <%= filters.maxPrice || 50000 %>
+                        </span></label>
+                    <input type="range" name="maxPrice" min="0" max="50000" step="500"
+                        value="<%= filters.maxPrice || 50000 %>" oninput="updatePrice(this.value)"
+                        onchange="this.form.submit()">
+                </div>
+
+                <!-- SUBMIT BUTTON (optional, since onchange submits) -->
+                <button type="submit" style="display: none;">Apply</button>
+
+            </div>
+        </form>
+
+    </section>
+    <section class="section-cars">
+        <h2>Available Cars ( <span class="text-black"><%= allVehicles.length %></span> )</h2>
+        <div class="searched-show-cars-div">
+
+            <% if (allVehicles && allVehicles.length> 0) { %>
+
+                <% for (let car of allVehicles) { %>
+
+                    <div class="car">
+                        <img src="<%= car.images[0] %>" alt="<%= car.name %>">
+
+                        <div class="title">
+                            <h1>
+                                <%= car.name %>
+                                    <span>
+                                        <%= car.category %>
+                                    </span>
+                            </h1>
+                            <span>
+                                <%= car.modelYear %>
+                            </span>
+                        </div>
+
+                        <p>PKR <%= car.pricePerDay %> / day</p>
+
+                        <div class="advantages">
+                            <p>
+                                <%= car.transmission %>
+                            </p>
+                            <p>
+                                <%= car.fuelType %>
+                            </p>
+                            <p>
+                                <%= car.seats %> seats
+                            </p>
+                        </div>
+
+                        <div class="location">
+                            <i class="ri-map-pin-line"></i>
+                            <span>
+                                <%= car.location?.cities && car.location.cities.length> 0
+                                    ? car.location.cities.join(", ")
+                                    : car.location.city %> - Pakistan
+                            </span>
+
+                        </div>
+
+                        <div class=" btn-div">
+                            <a href="/vehicles/car/<%= car._id %>">
+                                <button>
+                                    <i class="fa-solid fa-eye"></i> View Details
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <% } %>
+
+                        <% } else { %>
+                            <h1>Not Available</h1>
+                            <% } %>
+
+        </div>
+
+    </section>
+</main>
+<script>
+    // sab select + range inputs ko watch karenge
+    const filterForm = document.querySelector('form[action="/vehicles"]');
+
+    // select aur input elements
+    const selects = filterForm.querySelectorAll('select, input[type="range"]');
+
+    selects.forEach(el => {
+        el.addEventListener('change', () => {
+            filterForm.submit();  // change hota hi form submit
+        });
+    });
+
+    // range ke liye live value update
+    function updatePrice(val) {
+        document.getElementById("priceValue").innerText = val;
+    }
+</script>

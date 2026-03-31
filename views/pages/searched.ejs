@@ -1,0 +1,140 @@
+
+<section class="section-1">
+
+<div class="filter-container">
+
+    <h2>Find the right car</h2>
+    <p>Verified cars • Transparent pricing • Instant booking</p>
+
+    <form action="/searched" method="get" class="filter-form">
+
+        <!-- LOCATION -->
+        <div class="form-group">
+            <label>Location</label>
+            <input
+                type="text"
+                name="pickupLocation"
+                value="<%= pickupLocation %>"
+                placeholder="Enter city"
+                onchange="this.form.submit()">
+        </div>
+
+        <!-- CATEGORY -->
+        <div class="form-group">
+            <label>Category</label>
+            <select name="category" onchange="this.form.submit()">
+                <option value="All">All</option>
+                <option value="Economy" <%= filters.category==="Economy"?"selected":"" %>>Economy</option>
+                <option value="Sedan" <%= filters.category==="Sedan"?"selected":"" %>>Sedan</option>
+                <option value="Luxury" <%= filters.category==="Luxury"?"selected":"" %>>Luxury</option>
+                <option value="SUV" <%= filters.category==="SUV"?"selected":"" %>>SUV</option>
+                <option value="7-Seater" <%= filters.category==="7-Seater"?"selected":"" %>>7-Seater</option>
+            </select>
+        </div>
+
+        <!-- TRANSMISSION -->
+        <div class="form-group">
+            <label>Transmission</label>
+            <select name="transmission" onchange="this.form.submit()">
+                <option value="All">All</option>
+                <option value="Automatic" <%= filters.transmission==="Automatic"?"selected":"" %>>Automatic</option>
+                <option value="Manual" <%= filters.transmission==="Manual"?"selected":"" %>>Manual</option>
+            </select>
+        </div>
+
+        <!-- FUEL -->
+        <div class="form-group">
+            <label>Fuel</label>
+            <select name="fuelType" onchange="this.form.submit()">
+                <option value="All">All</option>
+                <option value="Petrol" <%= filters.fuelType==="Petrol"?"selected":"" %>>Petrol</option>
+                <option value="Diesel" <%= filters.fuelType==="Diesel"?"selected":"" %>>Diesel</option>
+                <option value="Hybrid" <%= filters.fuelType==="Hybrid"?"selected":"" %>>Hybrid</option>
+                <option value="Electric" <%= filters.fuelType==="Electric"?"selected":"" %>>Electric</option>
+            </select>
+        </div>
+
+        <!-- PRICE -->
+        <div class="form-group">
+            <label>Max Price: PKR <%= filters.maxPrice || 20000 %></label>
+            <input
+                type="range"
+                name="maxPrice"
+                min="1000"
+                max="20000"
+                step="500"
+                value="<%= filters.maxPrice || 20000 %>"
+                onchange="this.form.submit()">
+        </div>
+
+        <!-- SORT -->
+        <div class="form-group">
+            <label>Sort</label>
+            <select name="sort" onchange="this.form.submit()">
+                <option value="">Default</option>
+                <option value="low" <%= filters.sort==="low"?"selected":"" %>>Low to High</option>
+                <option value="high" <%= filters.sort==="high"?"selected":"" %>>High to Low</option>
+            </select>
+        </div>
+
+    </form>
+</div>
+</section>
+
+
+<div class="section-2">
+      <h2 >Available Cars ( <span class="text-black"><%= cars.length %></span> )</h2>
+    <div class="searched-show-cars-div vehicles-show-cars-div">
+        <% if(cars && cars.length> 0){ %>
+            <% cars.forEach(car=> { %>
+                <div class="car">
+                    <img src="<%= car.images[0] %>" alt="<%= car.name %>">
+
+                    <div class="title">
+                        <h1>
+                            <%= car.name %>
+                                <span>
+                                    <%= car.category %>
+                                </span>
+                        </h1>
+                        <span>
+                            <%= car.modelYear %>
+                        </span>
+                    </div>
+
+                    <p>PKR <%= car.pricePerDay %> / day</p>
+
+                    <div class="advantages">
+                        <p>
+                            <%= car.transmission %>
+                        </p>
+                        <p>
+                            <%= car.fuelType %>
+                        </p>
+                        <p>
+                            <%= car.seats %> seats
+                        </p>
+                    </div>
+
+                    <div class="location">
+                        <i class="ri-map-pin-line"></i>
+                        <span>
+                            <%= car.location.cities.join(", ") || car.location.city %> - Pakistan
+                            </span>
+                        </div>
+
+                        <div class=" btn-div">
+                                <a href="/vehicles/car/<%= car._id %>">
+                                    <button>
+                                        <i class="fa-solid fa-eye"></i> View Details
+                                    </button>
+                                </a>
+                    </div>
+                </div>
+                <% }) %>
+                    <% } else { %>
+                        <h1>No cars available for this search</h1>
+                        <% } %>
+
+    </div>
+</div>

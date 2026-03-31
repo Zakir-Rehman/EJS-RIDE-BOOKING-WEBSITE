@@ -1,0 +1,276 @@
+<main>
+    <div class="hero">
+
+        <!-- Background Video -->
+        <video autoplay muted loop>
+            <source src="images/Landing_car_video.mp4" type="video/mp4">
+        </video>
+
+        <!-- Overlay -->
+        <div class="overlay">
+
+            <h1 class="hero-title">
+                Rent a Car in Pakistan — Self-Drive or With Driver
+            </h1>
+
+            <!-- Top Buttons -->
+            <div class="buttons">
+                <button id="btn-quote" class="active" onclick="showForm('quote')">Get a Quote</button>
+                <button id="btn-search" onclick="showForm('search')">Search Available Cars</button>
+            </div>
+
+            <!-- Forms -->
+            <div class="form-box">
+
+                <!-- QUOTE FORM -->
+                <div class="form quote-box" id="quote">
+
+                    <form>
+                        <div class="row-">
+                            <input type="text" placeholder="Full Name *">
+                            <input type="text" placeholder="Phone Number *">
+                        </div>
+
+                        <div class="row-">
+                            <select>
+                                <option>Select City *</option>
+                                <option>Lahore</option>
+                                <option>Karachi</option>
+                                <option>Islamabad</option>
+                            </select>
+
+                            <div class="service">
+                                <button type="button" class="active">With Driver</button>
+                                <button type="button">Self Drive</button>
+                            </div>
+                        </div>
+
+                        <textarea placeholder="Tell us about your rental needs..."></textarea>
+
+                        <div class="actions">
+                            <button class="gold-btn">Get a Quote</button>
+                            <button class="whatsapp-btn">
+                                <i class="fa-brands fa-whatsapp fa-whatsapp-icon"></i> WhatsApp
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+
+                <!-- SEARCH FORM -->
+                <!-- <div class="form search-box" id="search">
+
+                    <form>
+                        <div class="search-div-1">
+                           
+                            <input type="text" placeholder="Pickup location">
+                            <input type="text" placeholder="Return location">
+                        </div>
+
+                        <div class="row-">
+                            <div class="pickup-div">
+                                <input type="date" class="date" placeholder="Pickup Date">
+                                <input type="time" class="time" placeholder="Pickup Time">
+
+                            </div>
+                            <div class="return-div">
+                                <input type="date" class="date" placeholder="Return Date">
+                                <input type="time" class="time" placeholder="Return Time">
+                            </div>
+                        </div>
+
+                        <button class="search-btn">Show Cars</button>
+                    </form>
+
+                </div>  -->
+
+                <!-- SEARCH FORM -->
+                <div class="form search-box" id="search">
+
+                    <!-- <form action="/searched" method="get">
+
+                        <div class="search-div-1">
+                            <input type="text" name="pickupLocation" placeholder="Pickup location" required>
+
+                            <input type="text" name="returnLocation" placeholder="Return location" required>
+                        </div>
+
+                        <div class="row-">
+                            <div class="pickup-div">
+                                <input type="date" name="pickupDate" class="date" required>
+
+                                <input type="time" name="pickupTime" class="time" required>
+                            </div>
+
+                            <div class="return-div">
+                                <input type="date" name="returnDate" class="date" required>
+
+                                <input type="time" name="returnTime" class="time" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="search-btn">
+                            Show Cars
+                        </button>
+
+                    </form> -->
+
+                    <form action="/searched" method="get">
+    <div class="searched-inp-1 inp-all-searched">
+        <label>Search Location</label>
+        <input
+            type="search"
+            name="pickupLocation"
+            placeholder="Search Location (e.g. Karachi, Lahore)">
+    </div>
+
+    <div class="searched-inp-2 inp-all-searched">
+
+        <div>
+            <label>Category</label>
+            <select name="category">
+                <option value="All">All Categories</option>
+                <option value="Economy">Economy</option>
+                <option value="Sedan">Sedan</option>
+                <option value="Luxury">Luxury</option>
+                <option value="SUV">SUV</option>
+                <option value="7-Seater">7-Seater</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Transmission</label>
+            <select name="transmission">
+                <option value="All">All</option>
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automatic</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Fuel Type</label>
+            <select name="fuelType">
+                <option value="All">All</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Electric">Electric</option>
+            </select>
+        </div>
+
+    </div>
+
+    <button type="submit" class="search-btn">Search</button>
+</form>
+
+                </div>
+
+            </div>>
+        </div>
+    </div>
+    <div class="quote-success">
+        <div class="success-card">
+            <div class="icon">✓</div>
+
+            <h2>Quote Request Submitted!</h2>
+            <p>
+                Thank you for choosing <strong>YourRide</strong>.<br>
+                We have received your car rental request.
+            </p>
+
+            <div class="info-box">
+                <p><strong>📍 City:</strong> Karachi</p>
+                <p><strong>🚗 Service:</strong> With Driver / Self Drive</p>
+                <p><strong>⏱ Response Time:</strong> Within 24 hours</p>
+            </div>
+
+            <div class="actions">
+                <a href="#" class="btn primary">Search Available Cars</a>
+                <a href="#" class="btn whatsapp">WhatsApp Support</a>
+            </div>
+
+            <span class="note">
+                Our team will contact you shortly via phone or WhatsApp.
+            </span>
+        </div>
+    </div>
+    <section class="section-popular-cities">
+        <h1 class="home-head">Popular Cities</h1>
+        <p class="lead text-muted">Explore Pakistan with reliable car rental services</p>
+        <div class="popular-cards">
+            <div class="popular-city popular-city-1">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.CCOaZa_DejAuv2xNEe4OjAHaFM?pid=Api&h=220&P=0" alt="Lahore">
+                <h2>Lahore</h2>
+                <p> Explore Lahore with our reliable car rental services</p>
+            </div>
+            <div class="popular-city popular-city-2">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.FiGDqvzIBDv41t0ukIJdrgHaE8?pid=Api&h=220&P=0"
+                    alt="Karachi">
+                <h2>Karachi</h2>
+                <p>Rent a comfortable and well-maintained car in Karachi for smooth city travel and long-distance trips.
+                </p>
+            </div>
+            <div class="popular-city popular-city-3">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.bxJ1EWtTMQPT_3irznq58gHaEK?pid=Api&h=220&P=0"
+                    alt="Islamabad">
+                <h2>Islamabad</h2>
+                <p>Comfortable rides in Pakistan's capital city</p>
+            </div>
+            <div class="popular-city popular-city-4">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.0hJ4nhg0Gbb3DenLfmDD-wAAAA?pid=Api&h=220&P=0" alt="Quetta">
+                <h2>Quetta</h2>
+                <p>Rent a comfortable and reliable car in Quetta for easy city and long-distance travel.</p>
+            </div>
+        </div>
+    </section>
+    <section class="section-2">
+        <section class="py-5 bg-light" id="how-it-works">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="home-head">How It Works</h2>
+                    <p class="lead text-muted">Getting your perfect ride is just 3 simple steps away</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 mb-4 work-div-main">
+                        <div class="text-center">
+                            <div class="bg- rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 80px; height: 80px;">
+                                <i class="fas fa-search fa-2x text-dark"></i>
+                            </div>
+                            <h4>Search &amp; Select Car</h4>
+                            <p class="text-muted">Browse through our verified cars, compare prices, and select the
+                                perfect vehicle for your journey.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4 work-div-main">
+                        <div class="text-center">
+                            <div class="bg- rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 80px; height: 80px;">
+                                <i class="fas fa-user-check fa-2x text-dark"></i>
+                            </div>
+                            <h4>Owner Confirms</h4>
+                            <p class="text-muted">Car owner receives WhatsApp notification and confirms your booking
+                                with a simple reply.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4 work-div-main">
+                        <div class="text-center">
+                            <div class="bg- rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                                style="width: 80px; height: 80px;">
+                                <i class="fas fa-car fa-2x text-dark"></i>
+                            </div>
+                            <h4>Ride &amp; Enjoy</h4>
+                            <p class="text-muted">Pick up your car and enjoy your journey. Pay securely through our
+                                wallet system.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+</main>
+<script src="/js/home.js"></script>

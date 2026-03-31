@@ -1,0 +1,142 @@
+<div class="header">
+    <h1 class="opacity-100">
+        <%= car.name %>
+    </h1>
+    <p>
+        Rent the <strong>
+            <%= car.name %>
+        </strong> in <%= car.location.city %> — comfort, reliability, and value in one ride.
+    </p>
+    <a href="/vehicles">
+        <button><i class="fa-solid fa-arrow-left"></i> Back to Vehicles</button>
+    </a>
+</div>
+<main>
+    <div class="showCar-main-container">
+        <div class="img-div">
+            <img src="<%= car.images[0] %>" alt="">
+        </div>
+        <div class="content-div">
+            <div class="content-div-1">
+                <div class="content-child-1 content-child-all">
+                    <h2>
+                        <%= car.name %>
+                    </h2>
+                    <p class="price-per-day">From PKR <%= car.pricePerDay %>/day </p>
+                    <div class="expertise">
+                        <p>
+                            <%= car.category %>
+                        </p>
+                        <p>
+                            <%= car.brand %>
+                        </p>
+                        <p>
+                            <%= car.fuelType %>
+                        </p>
+                        <p>
+                            <%= car.seats %>Seats
+                        </p>
+                        <p>
+                            <%= car.transmission %>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="content-child-2 content-child-all">
+                    <h1>Description</h1>
+                    <p>
+                        <%= car.description && car.description.length> 0
+                            ? car.description
+                            : "Description is not available" %>
+                    </p>
+                </div>
+                <div class="content-child-3 content-child-all">
+                    <h1>Specifications</h1>
+                    <div class="specifications">
+                        <p><span class="span-top">Category</span><span>
+                                <%= car.category %>
+                            </span></p>
+                        <p><span class="span-top">Brand</span><span>
+                                <%= car.brand %>
+                            </span></p>
+                        <p><span class="span-top">Seats</span><span>
+                                <%= car.seats %>
+                            </span></p>
+                        <p><span class="span-top">Transmission</span><span>
+                                <%= car.transmission %>
+                            </span></p>
+                        <p><span class="span-top">Fuel Type</span><span>
+                                <%= car.fuelType %>
+                            </span></p>
+                        <p><span class="span-top">Availablility</span><span class="availability">
+                                <%= car.available && car.available==true ? "Available" : "Description is not available"
+                                    %>
+                            </span></p>
+                    </div>
+                </div>
+                <div class="content-child-4 content-child-all">
+                    <h1>Features</h1>
+                    <div class="features">
+                        <% if (car.features && car.features.length> 0) { %>
+                            <% car.features.forEach(feature=> { %>
+                                <p><i class="fa-solid fa-circle-check"></i> <%= feature %>
+                                </p>
+                                <% }) %>
+                                    <% } else { %>
+                                        <p>No features available</p>
+                                        <% } %>
+                    </div>
+                </div>
+                <div class="content-child-5 content-child-all">
+                    <h1>Available In</h1>
+                    <div class="content-child-3-inner">
+                        <% if (car.location.cities && car.location.cities.length> 0) { %>
+                            <% car.location.cities.forEach(city=> { %>
+                                <p>
+                                    <%= city %>
+                                </p>
+                                <% }) %>
+                                    <% } else { %>
+                                        <p>
+                                            <%= car.location.city %>
+                                        </p>
+                                        <% } %>
+                    </div>
+                </div>
+
+            </div>
+            <div class="content-div-2">
+                <form action="/vehicles/car/<%= car._id%>/submit" method="post">
+                    <h2>Request Booking</h2>
+                    <input type="text" placeholder="Full Name" name="bookingForm[name]" required>
+                    <input type="number" placeholder="+92xxxxxxxxxx" name="bookingForm[number]" required>
+                    <input type="text" value="<%= car._id %>" name="bookingForm[id]" hidden required>
+                    <select name="bookingForm[city]" required>
+                        <option value="">All Locations</option>
+
+                        <% const cities=[ "Islamabad" , "Karachi" , "Lahore" , "Faisalabad" , "Rawalpindi" , "Multan"
+                            , "Gujranwala" , "Peshawar" , "Quetta" , "Sialkot" , "Bahawalpur" , "Sargodha" , "Larkana"
+                            , "Sheikhupura" , "Rahim Yar Khan" , "Gujrat" , "Mardan" , "Kasur" , "Sukkur" , "Okara"
+                            , "Wah Cantt" , "Jhang" , "Chiniot" , "Dera Ghazi Khan" , "Mingora" , "Mandi Bahauddin"
+                            , "Muzaffarabad" , "Abbottabad" , "Chakwal" , "Hafizabad" , "Nawabshah" , "Khairpur"
+                            , "Hyderabad" , "Jacobabad" , "Kotli" , "Gwadar" , "Turbat" , "Mirpur Khas" , "Thatta"
+                            , "Bannu" , "Dera Ismail Khan" ]; %>
+
+                            <% cities.forEach(city=> { %>
+                                <option value="<%= city %>">
+                                    <%= city %>
+                                </option>
+                                <% }) %>
+                    </select>
+                    <select name="bookingForm[service]" class="service-type" required>
+                        <option value="">Service Type</option>
+                        <option value="Self Drive">Self Drive</option>
+                        <option value="With Driver">With Driver</option>
+                    </select>
+                    <textarea name="bookingForm[requirements]" id="" placeholder="Any special requirements or questions..." required></textarea>
+                    <button type="submit">Request Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

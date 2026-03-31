@@ -1,0 +1,83 @@
+/* ROOT */
+:root {
+    --transition: all .5s linear;
+}
+
+/* ====== GENERAL RESET ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+     background-color: #F7F8FA;
+    /* margin: 20px; */
+}
+
+ol {
+    margin-bottom: 0 !important;
+}
+
+ol.nav-menu {
+    padding-bottom: 0 !important;
+}
+.nav-menu a{
+    text-decoration: none;
+}
+.header {
+    background: #FF6600;
+    color: #fff;
+    height: 34vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* padding: 25px 27px; */
+}
+.header a{
+    width: max-content;
+}
+.header h1 {
+    font-weight: 550;
+    font-family: "Michroma", sans-serif;
+}
+
+.header p {
+    font-family: system-ui;
+    font-weight: 550;
+    /* text-indent: 30px; */
+}
+
+.header button {
+    font-family: sans-serif;
+    font-weight: 550;
+    color: #FF6600;
+}
+.header button {
+    border: none;
+    outline: 1px solid #fff;
+    background: #fff;
+    padding: 6px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.head- {
+    font-family: "Michroma", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #FF6600;
+    /* opacity: 0.6; */
+    text-align: center;
+}
+@media (max-width:850px) {
+    .header h1{
+        font-size: 7vw;
+    }
+    .header{
+        height: max-content !important;
+                padding: 28px !important;
+    }
+}
